@@ -1,3 +1,26 @@
-User-agent: *
-Allow: /
+# User-agent: *
+# Allow: /
 
+# Path: /public/robots.txt
+
+# 1. Block major AI training models universally (Google, Microsoft, OpenAI, Anthropic)
+User-agent: __usage_ai-training
+Disallow: /
+
+# Legacy individual AI blocks (safety fallbacks)
+User-agent: GPTBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: PerplexityBot
+Disallow: /
+User-agent: CCBot
+Disallow: /
+
+# 2. Block traditional search engines completely from crawling your site
+User-agent: *
+Disallow: /
