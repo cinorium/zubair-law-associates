@@ -34,7 +34,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-slate-900 flex flex-col font-sans selection:bg-[#0A1224] selection:text-[#C5A059] overflow-x-hidden">
+    <div className="min-h-screen bg-[#F8F9FA] text-slate-900 flex flex-col font-sans selection:bg-[#0A1224] selection:text-[#C5A059] overflow-x-clip">
       
       {/* Top Bar Header */}
       <Header
@@ -42,7 +42,7 @@ export default function App() {
         onOpenConsultation={() => handleOpenConsultation()}
       />
 
-      <main className="flex-1 w-full overflow-x-hidden">
+      <main className="flex-1 w-full overflow-x-clip">
         {/* Hero Section */}
         <Hero
           onOpenConsultation={() => handleOpenConsultation('General Case Assessment')}

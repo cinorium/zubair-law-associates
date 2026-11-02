@@ -14,11 +14,11 @@
     font-family: var(--font-sans);
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
     min-width: 320px;
     background-color: #f8f9fa;
     color: #0f172a;

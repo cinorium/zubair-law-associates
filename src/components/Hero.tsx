@@ -1,49 +1,55 @@
-import React, { useState } from 'react';
-import { Search, ArrowRight, ShieldCheck, FileText } from 'lucide-react';
+import React, { useState } from "react";
+import { Search, ArrowRight, ShieldCheck, FileText } from "lucide-react";
+import heroLawChambersImg from "../assets/images/hero_law_chambers_1793450805328.jpg";
 
 interface HeroProps {
   onOpenConsultation: () => void;
   onSearchDrafts: (query: string) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onSearchDrafts }) => {
-  const [searchInput, setSearchInput] = useState('');
+export const Hero: React.FC<HeroProps> = ({
+  onOpenConsultation,
+  onSearchDrafts,
+}) => {
+  const [searchInput, setSearchInput] = useState("");
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchInput.trim()) {
       onSearchDrafts(searchInput.trim());
-      const el = document.getElementById('drafts-library');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      const el = document.getElementById("drafts-library");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const handleQuickTopicClick = (topic: string) => {
     setSearchInput(topic);
     onSearchDrafts(topic);
-    const el = document.getElementById('drafts-library');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById("drafts-library");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="relative overflow-hidden pt-8 pb-14 sm:pt-12 sm:pb-18 lg:pt-16 lg:pb-24 border-b border-slate-200 bg-[#F4F6F9] animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Top Trust Signal (No pills, quiet unboxed editorial metadata) */}
         <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-semibold uppercase tracking-widest text-[#B48C48] mb-5 sm:mb-7 animate-slide-up">
           <div className="flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-[#B48C48] shrink-0" />
             <span>Chambers of S.M. Zubair</span>
           </div>
-          <span aria-hidden="true" className="text-slate-300 hidden sm:inline">·</span>
+          <span aria-hidden="true" className="text-slate-300 hidden sm:inline">
+            ·
+          </span>
           <span>Advocate High Court of Sindh</span>
-          <span aria-hidden="true" className="text-slate-300 hidden sm:inline">·</span>
+          <span aria-hidden="true" className="text-slate-300 hidden sm:inline">
+            ·
+          </span>
           <span className="text-slate-600">Karachi, Pakistan</span>
         </div>
 
         {/* 2-Column Split: Editorial Value Prop on Left, High-Fidelity Chamber Asset on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          
           {/* Left Column: Heading, Value Proposition & Actions (7 cols) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-semibold tracking-tight text-[#0A1224] leading-[1.12] mb-5 sm:mb-6">
@@ -51,11 +57,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onSearchDrafts }
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-sans leading-relaxed max-w-2xl mb-7 sm:mb-8 font-normal">
-              Led by <strong>S.M. Zubair, Advocate High Court</strong>, Zubair Law Associates delivers principled courtroom representation across civil, criminal, family, and constitutional matters, alongside an open, rigorously vetted procedural drafting repository for litigants and legal practitioners.
+              Led by <strong>S.M. Zubair, Advocate High Court</strong>, Zubair
+              Law Associates delivers principled courtroom representation across
+              civil, criminal, family, and constitutional matters, alongside an
+              open, rigorously vetted procedural drafting repository for
+              litigants and legal practitioners.
             </p>
 
             {/* Interactive Search for Legal Drafts */}
-            <form onSubmit={handleSearchSubmit} className="relative max-w-xl mb-4 sm:mb-5">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="relative max-w-xl mb-4 sm:mb-5"
+            >
               <div className="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-0 shadow-xs rounded-lg overflow-hidden border border-slate-300 focus-within:border-[#0A1224] focus-within:ring-2 focus-within:ring-[#0A1224]/10 transition-all bg-white">
                 <div className="relative flex-1">
                   <Search className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -78,13 +91,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onSearchDrafts }
 
             {/* Quick Draft Filters */}
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-slate-500 mb-7 sm:mb-9">
-              <span className="font-semibold text-slate-700 shrink-0 uppercase tracking-wider text-[11px]">Key Precedents:</span>
+              <span className="font-semibold text-slate-700 shrink-0 uppercase tracking-wider text-[11px]">
+                Key Precedents:
+              </span>
               {[
-                'Habeas Corpus 491',
-                'Surety Reduction',
-                'Sale Deed Cancellation',
-                'Family Khula Suit',
-                'Rent Ejectment 15'
+                "Habeas Corpus 491",
+                "Surety Reduction",
+                "Sale Deed Cancellation",
+                "Family Khula Suit",
+                "Rent Ejectment 15",
               ].map((topic) => (
                 <button
                   key={topic}
@@ -121,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onSearchDrafts }
           <div className="lg:col-span-5 relative flex items-center">
             <div className="w-full relative rounded-xl overflow-hidden border border-slate-300 shadow-md bg-[#0A1224] chamber-card group">
               <img
-                src="/src/assets/images/hero_law_chambers_1793450805328.jpg"
+                src={heroLawChambersImg}
                 alt="Law Chambers Library and Consultation Desk at Zubair Law Associates"
                 referrerPolicy="no-referrer"
                 className="w-full h-72 sm:h-84 lg:h-[430px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
@@ -136,7 +151,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onSearchDrafts }
                   High Court of Sindh & Subordinate Courts
                 </h3>
                 <p className="text-xs text-slate-300 mt-1.5 line-clamp-2 leading-relaxed">
-                  Specialized in procedural pleadings, constitutional petitions, and evidentiary civil-criminal defense before all Karachi judicial districts.
+                  Specialized in procedural pleadings, constitutional petitions,
+                  and evidentiary civil-criminal defense before all Karachi
+                  judicial districts.
                 </p>
               </div>
             </div>
@@ -181,7 +198,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onSearchDrafts }
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { chamberProfile } from '../data/chamberInfo';
 import { Landmark, Award, MapPin, CheckCircle, Phone, Mail } from 'lucide-react';
+import highCourtFacadeImg from '../assets/images/high_court_facade_1793450805831.jpg';
 
 interface AboutChambersProps {
   onOpenConsultation: () => void;
@@ -84,7 +85,7 @@ export const AboutChambers: React.FC<AboutChambersProps> = ({ onOpenConsultation
           <div className="lg:col-span-5 space-y-4 sm:space-y-6">
             <div className="relative rounded-xl overflow-hidden border border-slate-300 shadow-md bg-[#0A1224] chamber-card group">
               <img
-                src="/src/assets/images/high_court_facade_1793450805831.jpg"
+                src={highCourtFacadeImg}
                 alt="High Court Judicial Architecture"
                 referrerPolicy="no-referrer"
                 className="w-full h-52 sm:h-60 lg:h-68 object-cover group-hover:scale-[1.02] transition-transform duration-500"

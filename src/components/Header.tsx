@@ -9,15 +9,6 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, activeSection }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 15);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close mobile menu on ESC key
   useEffect(() => {
@@ -50,32 +41,30 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, activeSectio
 
   return (
     <>
-      <header className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b transition-all duration-300 ${
-        scrolled ? 'border-slate-200 shadow-xs py-0.5' : 'border-slate-200/80 py-0'
-      }`}>
-        {/* Strict Top Bar Contract: 3 zones separated by gap-4 md:gap-8 */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4 md:gap-8">
+      <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-2xs">
+        {/* Strict Top Bar Contract: 3 zones separated by responsive gaps */}
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 xl:gap-8">
           
-          {/* Zone 1: Single text element wordmark in authoritative Cormorant serif */}
+          {/* Zone 1: Brand wordmark with responsive scaling */}
           <a 
             href="#" 
-            className="flex items-center gap-3 text-slate-900 group whitespace-nowrap shrink-0 min-w-0"
+            className="flex items-center gap-2 sm:gap-3 text-slate-900 group min-w-0 max-w-[calc(100vw-150px)] sm:max-w-none"
           >
-            <div className="w-9 h-9 rounded bg-[#0A1224] text-[#C5A059] flex items-center justify-center shadow-xs shrink-0 transition-transform duration-300 group-hover:scale-105">
-              <Scale className="w-5 h-5" />
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded bg-[#0A1224] text-[#C5A059] flex items-center justify-center shadow-xs shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <Scale className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="font-brand-title text-base sm:text-lg lg:text-xl font-bold tracking-wide uppercase text-[#0A1224] group-hover:text-[#B48C48] transition-colors truncate">
+              <span className="font-brand-title text-sm xs:text-base sm:text-lg lg:text-xl font-bold tracking-wide uppercase text-[#0A1224] group-hover:text-[#B48C48] transition-colors truncate">
                 Zubair Law Associates
               </span>
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-widest text-slate-500 font-sans font-medium truncate">
-                Chambers of S.M. Zubair · Advocate High Court
+              <span className="text-[9px] sm:text-[11px] uppercase tracking-wider sm:tracking-widest text-slate-500 font-sans font-medium truncate">
+                <span className="hidden md:inline">Chambers of S.M. Zubair · </span>Advocate High Court
               </span>
             </div>
           </a>
 
           {/* Zone 2: Concise single-line text navigation links */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-slate-600">
+          <nav className="hidden xl:flex items-center gap-5 2xl:gap-8 text-sm font-medium text-slate-600">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -95,11 +84,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, activeSectio
           </nav>
 
           {/* Zone 3: 1 primary action & responsive action triggers */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Quick Call Icon (Visible on small screens) */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+            {/* Quick Call Icon (Visible on small & medium screens) */}
             <a
               href={`tel:${chamberProfile.phone.replace(/[^0-9+]/g, '')}`}
-              className="lg:hidden p-2 text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded transition-colors"
+              className="xl:hidden p-1.5 sm:p-2 text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded transition-colors shrink-0"
               title={`Call Chambers: ${chamberProfile.phone}`}
               aria-label="Call Chambers"
             >
@@ -109,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, activeSectio
             {/* Desktop Direct Phone */}
             <a
               href={`tel:${chamberProfile.phone.replace(/[^0-9+]/g, '')}`}
-              className="hidden lg:inline-flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-slate-950 px-3 py-2 rounded hover:bg-slate-100 transition-colors whitespace-nowrap"
+              className="hidden xl:inline-flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-slate-950 px-3 py-2 rounded hover:bg-slate-100 transition-colors whitespace-nowrap"
               title="Call Chambers"
             >
               <Phone className="w-3.5 h-3.5 text-[#B48C48]" />
@@ -119,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, activeSectio
             {/* Primary Action Button */}
             <button
               onClick={onOpenConsultation}
-              className="px-3.5 sm:px-4 py-2 text-xs font-semibold tracking-wider uppercase text-white bg-[#0A1224] rounded hover:bg-[#152342] transition-all duration-200 active:scale-[0.98] shadow-xs hover:shadow whitespace-nowrap shrink-0 cursor-pointer border border-[#0A1224]"
+              className="px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-white bg-[#0A1224] rounded hover:bg-[#152342] transition-all duration-200 active:scale-[0.98] shadow-xs hover:shadow whitespace-nowrap shrink-0 cursor-pointer border border-[#0A1224]"
             >
               <span className="hidden sm:inline">Book Consultation</span>
               <span className="sm:hidden">Consult</span>
@@ -128,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, activeSectio
             {/* Mobile menu trigger button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-700 hover:text-slate-950 rounded hover:bg-slate-100 transition-colors cursor-pointer"
+              className="xl:hidden p-1.5 sm:p-2 text-slate-700 hover:text-slate-950 rounded hover:bg-slate-100 transition-colors cursor-pointer shrink-0"
               aria-label="Toggle navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
@@ -139,7 +128,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, activeSectio
 
       {/* Mobile Drawer & Backdrop */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 flex flex-col">
+        <div className="xl:hidden fixed inset-0 z-50 flex flex-col">
           {/* Backdrop */}
           <div 
             onClick={() => setMobileMenuOpen(false)} 
