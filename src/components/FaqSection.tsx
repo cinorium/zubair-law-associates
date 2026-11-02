@@ -15,7 +15,7 @@ export const FaqSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
-          <div className="text-xs font-semibold uppercase tracking-widest text-[#B48C48] mb-2">
+          <div className="text-xs font-semibold uppercase tracking-widest text-[#8A5D19] mb-2">
             Frequently Addressed Queries
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#0A1224] leading-tight">

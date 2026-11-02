@@ -162,8 +162,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
         ) : (
           <div>
             <div className="mb-4 sm:mb-6 pr-6">
-              <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#B48C48] mb-1 flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#B48C48] shrink-0" />
+              <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-[#8A5D19] mb-1 flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#8A5D19] shrink-0" />
                 <span>Chamber Intake & Confidential Advisory</span>
               </div>
               <h3 className="font-display text-2xl sm:text-3xl font-semibold text-[#0A1224]">
@@ -203,10 +203,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-slate-700">
+                  <label htmlFor="consultation-name" className="text-xs font-medium text-slate-700">
                     Full Name <span className="text-[#0A1224] font-bold">*</span>
                   </label>
                   <input
+                    id="consultation-name"
                     type="text"
                     required
                     value={fullName}
@@ -217,10 +218,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-slate-700">
+                  <label htmlFor="consultation-phone" className="text-xs font-medium text-slate-700">
                     Contact Phone Number <span className="text-[#0A1224] font-bold">*</span>
                   </label>
                   <input
+                    id="consultation-phone"
                     type="tel"
                     required
                     value={phone}
@@ -233,10 +235,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-slate-700">
+                  <label htmlFor="consultation-email" className="text-xs font-medium text-slate-700">
                     Email Address (Optional)
                   </label>
                   <input
+                    id="consultation-email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -246,10 +249,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-slate-700">
+                  <label htmlFor="consultation-domain" className="text-xs font-medium text-slate-700">
                     Legal Category <span className="text-[#0A1224] font-bold">*</span>
                   </label>
                   <select
+                    id="consultation-domain"
                     value={practiceDomain}
                     onChange={(e) => setPracticeDomain(e.target.value)}
                     className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-300 rounded text-slate-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0A1224] focus:border-[#0A1224]"
@@ -299,10 +303,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
               {/* Case Summary */}
               <div className="space-y-1">
-                <label className="text-xs font-medium text-slate-700">
+                <label htmlFor="consultation-summary" className="text-xs font-medium text-slate-700">
                   Brief Facts of the Matter <span className="text-[#0A1224] font-bold">*</span>
                 </label>
                 <textarea
+                  id="consultation-summary"
                   required
                   rows={3}
                   value={caseSummary}

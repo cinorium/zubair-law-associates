@@ -172,7 +172,7 @@ export const DraftRepository: React.FC<DraftRepositoryProps> = ({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-10">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-widest text-[#B48C48] mb-2">
+            <div className="text-xs font-semibold uppercase tracking-widest text-[#8A5D19] mb-2">
               Judicial Drafting Repository & Pleadings
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#0A1224] leading-tight">
@@ -201,6 +201,8 @@ export const DraftRepository: React.FC<DraftRepositoryProps> = ({
             <div className="relative flex-1">
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
+                id="drafts-search-input"
+                aria-label="Search procedural legal drafts and court formats"
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -294,7 +296,7 @@ export const DraftRepository: React.FC<DraftRepositoryProps> = ({
                       }`}
                     >
                       <div className="flex items-center justify-between text-[11px] text-slate-400 mb-1">
-                        <span className="font-semibold uppercase tracking-wider text-[#B48C48]">
+                        <span className="font-semibold uppercase tracking-wider text-[#8A5D19]">
                           {draft.category}
                         </span>
                         <span className="truncate max-w-[130px] sm:max-w-[160px] text-slate-500 text-right">
@@ -310,7 +312,7 @@ export const DraftRepository: React.FC<DraftRepositoryProps> = ({
                         {draft.shortDescription}
                       </p>
 
-                      <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#B48C48] font-semibold lg:hidden">
+                      <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#8A5D19] font-semibold lg:hidden">
                         <span>Open Document Reader</span>
                         <ChevronRight className="w-3.5 h-3.5" />
                       </div>
@@ -346,7 +348,7 @@ export const DraftRepository: React.FC<DraftRepositoryProps> = ({
             <div className="p-4 sm:p-6 border-b border-slate-200 bg-[#F8F9FA]">
               <div className="flex flex-col gap-3 mb-3">
                 <div>
-                  <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#B48C48]">
+                  <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#8A5D19]">
                     {activeDraft.jurisdiction}
                   </span>
                   <h3 className="font-display text-xl sm:text-2xl lg:text-3xl font-semibold text-[#0A1224] mt-0.5 leading-snug">
@@ -461,10 +463,11 @@ export const DraftRepository: React.FC<DraftRepositoryProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {activeDraft.placeholders.map((p) => (
                     <div key={p.key} className="space-y-1">
-                      <label className="text-xs font-medium text-slate-700">
+                      <label htmlFor={`field-${p.key}`} className="text-xs font-medium text-slate-700">
                         {p.label}
                       </label>
                       <input
+                        id={`field-${p.key}`}
                         type="text"
                         value={customValues[p.key] ?? p.defaultValue}
                         onChange={(e) =>

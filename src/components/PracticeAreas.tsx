@@ -32,8 +32,8 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onOpenConsultation
         
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">
-          <div className="text-xs font-semibold uppercase tracking-widest text-[#B48C48] mb-2 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#B48C48]/60 inline-block"></span>
+          <div className="text-xs font-semibold uppercase tracking-widest text-[#8A5D19] mb-2 flex items-center gap-2">
+            <span className="w-6 h-px bg-[#8A5D19]/60 inline-block"></span>
             <span>Areas of Legal Practice</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#0A1224] leading-tight">
@@ -81,7 +81,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onOpenConsultation
                     <span className="font-mono text-xs font-bold text-slate-400 group-hover:text-[#0A1224] transition-colors">
                       {indexFormatted}.
                     </span>
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-[#B48C48] bg-amber-50/70 border border-amber-200/60 px-2.5 py-0.5 rounded-xs truncate max-w-[210px]">
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-[#8A5D19] bg-amber-50/70 border border-amber-200/60 px-2.5 py-0.5 rounded-xs truncate max-w-[210px]">
                       {primaryForum}
                     </span>
                   </div>
@@ -155,7 +155,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({ onOpenConsultation
           <div className="bg-white border border-slate-300 rounded-xl max-w-2xl w-full p-5 sm:p-7 md:p-8 shadow-2xl max-h-[90vh] overflow-y-auto animate-slide-up">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#B48C48]">
+                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#8A5D19]">
                   Practice Domain Dossier
                 </span>
                 <h3 className="font-display text-2xl sm:text-3xl font-semibold text-[#0A1224] mt-1">

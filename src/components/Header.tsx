@@ -48,6 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation, activeSectio
           {/* Zone 1: Brand wordmark with responsive scaling */}
           <a 
             href="#" 
+            aria-label="Zubair Law Associates Home"
             className="flex items-center gap-2 sm:gap-3 text-slate-900 group min-w-0 max-w-[calc(100vw-150px)] sm:max-w-none"
           >
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded bg-[#0A1224] text-[#C5A059] flex items-center justify-center shadow-xs shrink-0 transition-transform duration-300 group-hover:scale-105">

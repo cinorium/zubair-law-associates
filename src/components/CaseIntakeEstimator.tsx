@@ -107,7 +107,7 @@ export const CaseIntakeEstimator: React.FC<CaseIntakeEstimatorProps> = ({
         
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-10">
-          <div className="text-xs font-semibold uppercase tracking-widest text-[#B48C48] mb-2">
+          <div className="text-xs font-semibold uppercase tracking-widest text-[#8A5D19] mb-2">
             Preliminary Case Assessment
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#0A1224] leading-tight">
@@ -148,7 +148,7 @@ export const CaseIntakeEstimator: React.FC<CaseIntakeEstimatorProps> = ({
             {/* Left Column: Procedural Dossier (8 cols) */}
             <div className="lg:col-span-8 space-y-4 sm:space-y-6">
               <div>
-                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#B48C48]">
+                <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-[#8A5D19]">
                   Assessment Overview
                 </span>
                 <h3 className="font-display text-2xl sm:text-3xl font-semibold text-[#0A1224] mt-1">

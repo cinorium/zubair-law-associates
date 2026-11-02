@@ -33,19 +33,19 @@ export const Hero: React.FC<HeroProps> = ({
     <section className="relative overflow-hidden pt-8 pb-14 sm:pt-12 sm:pb-18 lg:pt-16 lg:pb-24 border-b border-slate-200 bg-[#F4F6F9] animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Trust Signal (No pills, quiet unboxed editorial metadata) */}
-        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-semibold uppercase tracking-widest text-[#B48C48] mb-5 sm:mb-7 animate-slide-up">
+        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-semibold uppercase tracking-widest text-[#8A5D19] mb-5 sm:mb-7 animate-slide-up">
           <div className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-[#B48C48] shrink-0" />
+            <ShieldCheck className="w-4 h-4 text-[#8A5D19] shrink-0" />
             <span>Chambers of S.M. Zubair</span>
           </div>
-          <span aria-hidden="true" className="text-slate-300 hidden sm:inline">
+          <span aria-hidden="true" className="text-slate-400 hidden sm:inline">
             ·
           </span>
           <span>Advocate High Court of Sindh</span>
-          <span aria-hidden="true" className="text-slate-300 hidden sm:inline">
+          <span aria-hidden="true" className="text-slate-400 hidden sm:inline">
             ·
           </span>
-          <span className="text-slate-600">Karachi, Pakistan</span>
+          <span className="text-slate-700">Karachi, Pakistan</span>
         </div>
 
         {/* 2-Column Split: Editorial Value Prop on Left, High-Fidelity Chamber Asset on Right */}
@@ -73,6 +73,8 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="relative flex-1">
                   <Search className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   <input
+                    id="hero-draft-search"
+                    aria-label="Search drafts and procedural formats"
                     type="text"
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
@@ -82,6 +84,7 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
                 <button
                   type="submit"
+                  aria-label="Find legal draft"
                   className="px-4 py-2.5 sm:py-3 text-xs font-semibold uppercase tracking-wider text-white bg-[#0A1224] hover:bg-[#152342] transition-colors whitespace-nowrap cursor-pointer text-center"
                 >
                   Find Draft
@@ -138,7 +141,11 @@ export const Hero: React.FC<HeroProps> = ({
               <img
                 src={heroLawChambersImg}
                 alt="Law Chambers Library and Consultation Desk at Zubair Law Associates"
-                referrerPolicy="no-referrer"
+                width={960}
+                height={536}
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
                 className="w-full h-72 sm:h-84 lg:h-[430px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1224]/90 via-[#0A1224]/25 to-transparent pointer-events-none" />

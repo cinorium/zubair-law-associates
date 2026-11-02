@@ -14,7 +14,7 @@ export const AboutChambers: React.FC<AboutChambersProps> = ({ onOpenConsultation
         
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">
-          <div className="text-xs font-semibold uppercase tracking-widest text-[#B48C48] mb-2">
+          <div className="text-xs font-semibold uppercase tracking-widest text-[#8A5D19] mb-2">
             The Advocate & Chambers Profile
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-semibold text-[#0A1224] leading-tight">
@@ -87,7 +87,10 @@ export const AboutChambers: React.FC<AboutChambersProps> = ({ onOpenConsultation
               <img
                 src={highCourtFacadeImg}
                 alt="High Court Judicial Architecture"
-                referrerPolicy="no-referrer"
+                width={800}
+                height={597}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-52 sm:h-60 lg:h-68 object-cover group-hover:scale-[1.02] transition-transform duration-500"
               />
               <div className="p-4 bg-[#0A1224] text-slate-200 border-t border-[#C5A059]/20">
